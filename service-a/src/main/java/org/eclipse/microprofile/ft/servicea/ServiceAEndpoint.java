@@ -17,15 +17,12 @@ import org.eclipse.microprofile.faulttolerance.Retry;
 import org.eclipse.microprofile.faulttolerance.Timeout;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
-@Path("/")
-@RequestScoped
+@Path("/service")
 public class ServiceAEndpoint {
 
 	@Inject @RestClient
-	
 	ServiceBClient client;
-	
-	@Inject ServiceAEndpoint self;
+
 	
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
@@ -33,17 +30,11 @@ public class ServiceAEndpoint {
 	@Retry(maxRetries=1)
 	@Fallback(fallbackMethod="fallback")
 	public String callService() throws Exception {
-		return self.hopService().get();
+		return client.callMe();
 	}
-	
-	@Asynchronous
-	public Future<String> hopService() throws Exception {
-		return CompletableFuture.completedFuture(client.callMe());
-		
-	}
-	
+
 	public String fallback() {
-		return "I will do it myself from ServiceA.";
+		return "I had to fallback";
 	}
 	
 	

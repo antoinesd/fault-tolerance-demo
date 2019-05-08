@@ -42,7 +42,7 @@ public class HealthEndpoint implements HealthCheck {
    */
   @Inject
   @ConfigProperty(name = "healthy", defaultValue = "true")
-  private boolean healthy;
+  public boolean healthy;
 
   @Override
   public HealthCheckResponse call() {
