@@ -1,5 +1,6 @@
 # MicroProfile Demo FT Service B
 This is the serviceB component of the microprofile Demo FT.
+It is designed to run with Open Liberty or Thorntail.
 
 ## Requirements
 * [Docker](https://www.docker.com/)
@@ -24,12 +25,12 @@ The pom is designed to contain application server profiles with which you can te
 
     mvn -P liberty install liberty:run-server
 
-The service will be accessible at http://localhost:8080/ft/serviceB
+The service will be accessible at http://localhost:9080/ft/serviceB
 
 ### Run the service locally in a Docker container
 
     docker build -t serviceb -f src/main/profiles/liberty/Dockerfile .
-    docker run -p 8080:8080 serviceb
+    docker run -p 9080:9080 serviceb
 
 The service will be accessible at http://localhost:8080/ft/serviceB
 
@@ -50,6 +51,6 @@ The service will be accessible at http://localhost:8080/ft/serviceB
 
     mvn -Pthorntail clean package 
     docker build -t serviceb -f src/main/profiles/thorntail/Dockerfile .
-    docker run -p 8080:8080 serviceb
+    docker run -p 9080:9080 serviceb
 
-The service will be accessible at http://localhost:8080/ft/serviceB
+The service will be accessible at http://localhost:9080/ft/serviceB

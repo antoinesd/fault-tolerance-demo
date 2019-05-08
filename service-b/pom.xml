@@ -266,7 +266,7 @@
     <profile>
       <id>thorntail</id>
       <properties>
-        <version.thorntail>2.2.0.Final</version.thorntail>
+        <version.thorntail>2.4.0.Final</version.thorntail>
       </properties>
 
       <dependencyManagement>

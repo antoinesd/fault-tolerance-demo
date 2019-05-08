@@ -1,3 +1,0 @@
-swarm:
-  context:
-    path: '/ft/serviceA'
